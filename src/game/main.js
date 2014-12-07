@@ -69,6 +69,20 @@ game.createScene('Main', {
 		text.interactive = true;
 		text.click = this._showHighscores.bind(this);
 		text.addTo(this.stage);
+		
+		text = new game.BitmapText('A W D S to move', { font: 'font' });
+		text.position.set(10, 10);
+		text.scale.set(0.5, 0.5);
+		text.interactive = true;
+		text.click = this._showHighscores.bind(this);
+		text.addTo(this.stage);
+		
+		text = new game.BitmapText('Click to throw snowball', { font: 'font' });
+		text.position.set(10, 50);
+		text.scale.set(0.5, 0.5);
+		text.interactive = true;
+		text.click = this._showHighscores.bind(this);
+		text.addTo(this.stage);
 	},
     
     _newGame: function() {
@@ -91,7 +105,15 @@ game.createScene('Main', {
 			text.addTo(this.stage);
 			text.interactive = true;
 			text.click = this.showMenu.bind(this);
-		}	
+		}
+		
+		text = new game.BitmapText('Back', { font: 'font' });
+		text.scale.set(0.8, 0.8);
+		text.position.set(game.system.width / 2 - text.width / 2, 
+			450);
+		text.addTo(this.stage);
+		text.interactive = true;
+		text.click = this.showMenu.bind(this);
 	}
 });
 
@@ -168,8 +190,8 @@ game.createScene('Game', {
 		this.scoreText.position.set(10, 10);
 		this.scoreText.addTo(this.stage);
 		
-		this.gameOverText = new game.BitmapText('You\'re infected', 
-			{ font: 'font' });
+		this.gameOverText = new game.BitmapText(
+			'You\'re infected\n\r(Return to menu)', { font: 'font' });
 		this.gameOverText.position.set(
 			game.system.width / 2 - this.gameOverText.width / 2,
 			game.system.height / 2 - this.gameOverText.height / 2);
