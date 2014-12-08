@@ -11,6 +11,16 @@ game.module(
 )
 .body(function() {
 
+if (!Array.prototype.fill) {
+	Array.prototype.fill = function(v) {
+		for (var i = 0; i < this.length; i++) {
+			this[i] = v;
+		}
+		
+		return this;
+	}
+}
+
 SPAWN_RADIUS_2	= 90000; // Only spawn out of radius, center is player
 SPAWN_PER_UPDATE= 1;
 SPAWN_TIME		= 1500;
